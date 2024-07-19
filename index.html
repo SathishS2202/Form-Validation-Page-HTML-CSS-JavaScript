@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="content">
+    <div class="container-fluid vh-100 d-flex justify-content-center align-items-center">
+        <div class="row w-75 shadow-lg rounded overflow-hidden position-relative">
+            <div class="col-md-6 p-0 position-relative">
+                <img src="assets/image1.jpg" alt="Travel" class="img-fluid w-100 h-100">
+            </div>
+            <div class="col-md-6 bg-white p-5 d-flex flex-column justify-content-center">
+                <h2 class="mb-3">Welcome</h2>
+                <form name="formvalidate" method="post" action="form.html" onsubmit="return validateform()">
+                    <div class="mb-3">
+                        <label for="fname" class="form-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your first name" name="fname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="lname" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Enter your last name" name="lname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" placeholder="Enter your city" name="city">
+                    </div>
+                    <div class="mb-3">
+                        <label for="mobile" class="form-label">Mobile Number</label>
+                        <input type="text" class="form-control" placeholder="Enter your mobile number" name="mobile">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" placeholder="Enter your address here" name="address">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateform() {
+            var firstname = document.formvalidate.fname.value;
+            var lastname = document.formvalidate.lname.value;
+            var cityname = document.formvalidate.city.value;
+            var mobileno = document.formvalidate.mobile.value;
+            var addressof = document.formvalidate.address.value;
+
+            if (!firstname || !lastname || !cityname || !mobileno || !addressof) {
+                alert("Fill all the inputs to submit the form");
+                return false;
+            } else if (firstname.length <= 5) {
+                alert("First name should be greater than 5 letters");
+                return false;
+            } else if (mobileno.length != 10) {
+                alert("Mobile Number should contain 10 digits");
+                return false;
+            }
+            return true;
+        }
+
+        function action() {
+            window.alert("Form Submitted Successfully");
+        }
+    </script>
+</body>
+</html>
